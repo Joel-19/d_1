@@ -7,11 +7,11 @@ class IconContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 20.0,
-      height: 10.0,
+      width: 80.0,
+      height: 80.0,
       child: CircleAvatar(
-        radius: 10.0,
-        backgroundColor: Colors.black12,
+        radius: 80.0,
+        backgroundColor: Color.fromARGB(31, 233, 172, 172),
         backgroundImage: AssetImage(this.url),
       ),
     );

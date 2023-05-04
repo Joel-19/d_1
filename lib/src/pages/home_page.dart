@@ -19,16 +19,16 @@ class _HomePageState extends State<HomePage> {
           height: double.infinity,
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: <Color>[
-            Color.fromARGB(255, 102, 2, 2),
-            Color.fromARGB(0, 235, 39, 35),
-          ], begin: Alignment.bottomRight)),
+            Color.fromARGB(255, 128, 5, 5),
+            Color.fromRGBO(231, 200, 200, 1),
+          ], begin: Alignment.topRight)),
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 200),
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset("imagen/descarga.png"),
+                  IconContainer(url: "imagen/una.png"),
                   Text(
                     "COOP Fernando Daquilema",
                     style: TextStyle(fontSize: 20.0),

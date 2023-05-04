@@ -1,6 +1,6 @@
 enum LoginResponse {
   ok,
-  accessDenied,
-  networkError,
-  unknownError,
+  ErrorEmail,
+  ErrorConexion,
+  ErrorDesconocido,
 }

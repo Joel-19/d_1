@@ -53,7 +53,7 @@ class _RegistrarState extends State<Registrar> {
                     children: <Widget>[
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 235, 109, 109)),
+                            primary: Color.fromARGB(255, 151, 5, 5)),
                         onPressed: () {
                           final Route = MaterialPageRoute(
                               builder: (context) => Ingresarr());

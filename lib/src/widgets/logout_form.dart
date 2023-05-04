@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 class LogoutForm extends StatefulWidget {
   const LogoutForm({super.key});
-
   @override
   State<LogoutForm> createState() => _LogoutFormState();
 }

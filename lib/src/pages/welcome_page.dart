@@ -1,6 +1,12 @@
+import 'package:d_1/src/domain/responses/project.dart';
+import 'package:d_1/src/pages/guardar_page.dart';
+import 'package:d_1/src/pages/home_page.dart';
+import 'package:d_1/src/widgets/icon_container.dart';
+import 'package:d_1/src/widgets/tabla_from.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:data_table_2/data_table_2.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -19,16 +25,16 @@ class _WelcomeState extends State<Welcome> {
           height: double.infinity,
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: <Color>[
-            Color.fromARGB(255, 102, 2, 2),
-            Color.fromARGB(0, 235, 39, 35)
-          ], begin: Alignment.bottomRight)),
+            Color.fromARGB(255, 161, 52, 52),
+            Color.fromARGB(0, 241, 150, 150)
+          ], begin: Alignment.bottomCenter)),
           child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 100),
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset("imagen/descarga.png"),
+                  IconContainer(url: "imagen/s4.jpg"),
                   Text(
                     "COOP Fernando Daquilema",
                     style: TextStyle(fontSize: 15.0),
@@ -37,13 +43,12 @@ class _WelcomeState extends State<Welcome> {
                     "Soporte y Mantenimiento",
                     style: TextStyle(fontSize: 15.0),
                   ),
-                  Text("Bienvenido",
+                  Text("Reporte de Tareas",
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 15.0,
                       )),
-                  Divider(
-                    height: 10.0,
-                  ),
+                  Divider(height: 50),
+                  TablaFrom(),
                 ],
               )
             ],

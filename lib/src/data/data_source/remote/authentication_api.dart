@@ -22,14 +22,15 @@ class AuthenticationAPI {
     if (result.error == null) {
       return LoginResponse.ok;
     }
+
     if (result.statusCode == 400) {
-      return LoginResponse.accessDenied;
+      return LoginResponse.ErrorEmail;
     }
     final error = result.error!.exception;
     if (error is SocketException || error is TimeoutException) {
-      return LoginResponse.networkError;
+      return LoginResponse.ErrorConexion;
     }
 
-    return LoginResponse.unknownError;
+    return LoginResponse.ErrorDesconocido;
   }
 }

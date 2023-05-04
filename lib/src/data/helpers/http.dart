@@ -18,6 +18,7 @@ class Http {
     Parser<T>? parser,
     Duration timeOut = const Duration(seconds: 10),
   }) async {
+    print("inicio - - - - - - - ");
     int? statusCode;
     dynamic data;
     try {
@@ -27,6 +28,7 @@ class Http {
       } else {
         url = Uri.parse("$baseUrl$path");
       }
+      print(url);
 
       if (queryParameters.isNotEmpty) {
         url = url.replace(queryParameters: {
@@ -43,6 +45,7 @@ class Http {
       );
       data = parseResponseBody(response.body);
       statusCode = response.statusCode;
+      print(statusCode);
       if (statusCode >= 400) {
         throw HttpError(
           exception: null,
@@ -55,6 +58,7 @@ class Http {
           error: null,
           statusCode: statusCode);
     } catch (e, s) {
+      print(e);
       if (e is HttpError) {
         return HttpResult<T>(
           data: null,

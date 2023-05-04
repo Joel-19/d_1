@@ -9,7 +9,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
   @override
   Future<String?> get accessToken async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 10));
     return "null";
   }
 

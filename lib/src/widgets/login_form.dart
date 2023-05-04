@@ -1,7 +1,13 @@
+import 'package:d_1/src/domain/responses/login_response.dart';
 import 'package:d_1/src/pages/welcome_page.dart';
 import 'package:d_1/src/pages/registrar_in.dart';
+import 'package:d_1/src/utilidades/dialogs.dart';
 import 'package:d_1/src/widgets/input_text.dart';
 import 'package:flutter/material.dart';
+import 'package:d_1/src/data/helpers/http.dart';
+import 'package:d_1/src/data/data_source/helpers/repositories_impl/authentication_repository_impl.dart';
+import 'package:d_1/src/data/data_source/remote/authentication_api.dart';
+import 'package:d_1/src/domain/models/repositories/authentication_repository.dart';
 
 class LoginForm extends StatefulWidget {
   LoginForm({key}) : super(key: key);
@@ -18,7 +24,23 @@ class _LoginFormState extends State<LoginForm> {
     final isLogin = _formkey.currentState?.validate();
     print("IsLogin Form$isLogin");
     if (isLogin!) {
-      Navigator.pushNamed(context, "welcome_page");
+      //Navigator.pushNamed(context, "welcome_page");
+      final http = Http(baseUrl: "https://reqres.in");
+
+      final AuthenticationRepository aut = AuthenticationRepositoryImpl(
+        AuthenticationAPI(http),
+      );
+      //aut.login("eve.holt@reqres.in", "cityslicka").then((value) {
+      aut.login(_email, _password).then((value) {
+        print(value);
+        print("valor");
+        if (value == LoginResponse.ok) {
+          Navigator.pushNamed(context, "welcome_page",
+              arguments: LoginResponse.ok);
+        } else {
+          Dialogs.alert(context, title: "Error", description: value.toString());
+        }
+      });
     }
   }
 
@@ -92,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 218, 143, 143)),
+                      primary: Color.fromARGB(255, 231, 142, 142)),
                   onPressed: () {
                     final Route =
                         MaterialPageRoute(builder: (context) => Registrar());
